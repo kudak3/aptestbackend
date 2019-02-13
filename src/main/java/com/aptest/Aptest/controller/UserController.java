@@ -37,9 +37,9 @@ public class UserController {
 
 
     @GetMapping("/user")
-    public String loginUser(@RequestBody User user){
+    public User loginUser(@RequestBody User user){
         User userFound = userRepository.findByUserNameAndPassword(user.getUserName(),user.getPassword());
-        return "logged in";
+        return userFound;
     }
 
 }

@@ -9,9 +9,18 @@ public class User {
     private String id;
     private String userName;
     private String password;
+    private Role role;
 
     public String getId() {
         return id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void setId(String id) {
