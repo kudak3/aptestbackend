@@ -15,6 +15,15 @@ public class Teacher {
     private String address;
     private String email;
     private String idNum;
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getId() {
         return id;

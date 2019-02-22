@@ -36,8 +36,8 @@ public class StudentController {
         return studentRepository.findById(student.getId()).get();
     }
 
-    @DeleteMapping("/teacher/{ecNo}")
-    public void deleteTeacher(@PathVariable String idNum){
+    @DeleteMapping("/student/{ecNo}")
+    public void deleteStuden(@PathVariable String idNum){
         Student student = studentRepository.findStudentByIdNum(idNum);
 
         studentRepository.delete(student);
