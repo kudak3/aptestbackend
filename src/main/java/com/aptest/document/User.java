@@ -20,9 +20,9 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String gender;
-    private String phoneNum;
-    private String address;
+    private String phoneNumber;
     private String email;
+    private String role;
 
 
 
@@ -83,20 +83,12 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -105,6 +97,14 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -117,9 +117,9 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
-                ", phoneNum=" + phoneNum +
-                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

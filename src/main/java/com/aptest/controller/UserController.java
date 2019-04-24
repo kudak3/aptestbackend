@@ -3,6 +3,7 @@ package com.aptest.controller;
 import com.aptest.document.Role;
 import com.aptest.document.User;
 import com.aptest.mail.NotificationService;
+import com.aptest.repository.RoleRepository;
 import com.aptest.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -38,15 +39,23 @@ public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private RoleRepository roleRepository;
+
     @PostMapping("/user")
-    public User addUSer(@RequestBody User user){
+    public User signUpUser(@RequestBody User user){
 
         User userExists = userRepository.findUserByUserName(user.getUserName());
         if(userExists ==null){
-
+            Set<Role> roleSet = new HashSet<>();
+            Role role = roleRepository.findRoleByName(user.getRole());
+            roleSet.add(role);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            System.out.println("/////////////////////////////////"+roleSet.toString());
+        user.setRoles(roleSet);
+
        User user1 = userRepository.save(user);
-            notificationService.sendAccountCreationConfirmation(user1);
+       notificationService.sendAccountCreationConfirmation(user1);
         return user1;
         }
         return null;
@@ -72,9 +81,9 @@ public class UserController {
 
 
         User user = userRepository.findUserByUserName(userName);
-        Set<Role> roleSet = user.getRoles();
-        List<Role> roles = new ArrayList<>(roleSet);
-        
+
+        List<Role> roles = new ArrayList<>(user.getRoles());
+
 
 
         HttpHeaders header = new HttpHeaders();

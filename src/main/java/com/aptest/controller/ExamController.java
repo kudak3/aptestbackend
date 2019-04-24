@@ -41,6 +41,9 @@ public class ExamController {
 
     @GetMapping("/exams")
     public List<Exam> getExams(){
+
+        System.out.println("=====here====");
+
         return examRepository.findAll();
     }
 }
