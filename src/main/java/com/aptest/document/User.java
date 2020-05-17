@@ -19,7 +19,6 @@ public class User implements Serializable {
     private Set<Role> roles = new HashSet<>();
     private String firstName;
     private String lastName;
-    private String gender;
     private String phoneNumber;
     private String email;
     private String role;
@@ -75,14 +74,6 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -116,7 +107,7 @@ public class User implements Serializable {
                 ", roles=" + roles +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", gender='" + gender + '\'' +
+
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +

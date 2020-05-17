@@ -110,5 +110,23 @@ public class UserController {
 
     }
 
+    @PutMapping("/profile")
+    public ResponseEntity<User> editProfile(@RequestParam("userId") String userId,@RequestBody User user){
+
+            User user1 = userRepository.findById(userId).get();
+            user1.setUserName(user.getUserName());
+            user1.setFirstName(user.getFirstName());
+            user1.setLastName(user.getLastName());
+            user1.setEmail(user.getEmail());
+            user1.setPhoneNumber(user.getPhoneNumber());
+
+            HttpHeaders header = new HttpHeaders();
+            header.add("zvaita","zvaita");
+
+
+
+        return new ResponseEntity<>(user1,header,HttpStatus.OK);
+    }
+
 
 }
